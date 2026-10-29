@@ -951,9 +951,7 @@ class BarManager:
             battle = spads.getLobbyInterface().getBattle()
             scriptTags = battle.get('scriptTags', {}) if battle else {}
             variableSpeed = scriptTags.get('game/modoptions/variablespeed', '0')
-            if str(variableSpeed).lower() in ('1', 'true'):
-                res['game/modoptions/ranked_game'] = 0
-            else:
+            if str(variableSpeed).lower() not in ('1', 'true'):
                 res['game/modoptions/minspeed'] = 1
                 res['game/modoptions/maxspeed'] = 1
 
